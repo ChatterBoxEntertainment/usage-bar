@@ -1,5 +1,6 @@
 {
   "name": "usage-bar",
+  "description": "Usage meters for Claude Code and chat.",
   "owner": { "name": "bryan" },
   "plugins": [
     {

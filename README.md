@@ -18,7 +18,7 @@ Local, always on in Claude Code: add the folder to `CLAUDE_CODE_PLUGIN_DIRS` in 
 From a marketplace repository containing this folder and `.claude-plugin/marketplace.json`:
 
 ```
-/plugin install usage-bar --marketplace <owner>/<repo>
+/plugin install usage-bar --marketplace ChatterBoxEntertainment/usage-bar
 ```
 
 ## Notes
