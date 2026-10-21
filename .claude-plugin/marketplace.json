@@ -1,0 +1,11 @@
+{
+  "name": "usage-bar",
+  "owner": { "name": "bryan" },
+  "plugins": [
+    {
+      "name": "usage-bar",
+      "source": "./",
+      "description": "Context, cost and 5h/7d limit usage at a glance: a live bar in Claude Code plus a usage-meter skill for chat."
+    }
+  ]
+}
