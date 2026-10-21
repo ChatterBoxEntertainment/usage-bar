@@ -16,17 +16,36 @@ const untilReset = (iso: string | undefined, now: number) => {
 const tone = (n: number) => (n >= 90 ? 'error' : n >= 70 ? 'warning' : 'success')
 
 export const register: Register = on => {
-  // Output tokens per second of the last main-loop answer. Wall-clock, so tool time counts too.
+  // Output tokens per second of the last main-loop answer, over its model requests only.
   let speed: number | null = null
+  let tokens = 0
+  let genMs = 0
 
   on('session.start', ($, e, next) => {
     $.clock.every(30_000, () => $.ui.invalidate('ui.render'))
     return next(e)
   })
 
+  on('turn.start', ($, e, next) => {
+    if (!e.agentId) tokens = genMs = 0
+    return next(e)
+  })
+
+  // Times each main-loop request from send to stop. Tool runs fall between requests, so they are left out.
+  on('turn.step', async function* ($, e, next) {
+    if (e.agentId) return yield* next(e)
+    const started = await $.clock.now()
+    const r = yield* next(e)
+    if (r.usage) {
+      tokens += r.usage.output_tokens
+      genMs += (await $.clock.now()) - started
+    }
+    return r
+  })
+
   on('turn.complete', ($, e, next) => {
-    if (!e.agentId && e.usage && e.durationMs > 0) {
-      speed = e.usage.output_tokens / (e.durationMs / 1000)
+    if (!e.agentId && genMs > 0) {
+      speed = tokens / (genMs / 1000)
       $.ui.invalidate('ui.render')
     }
     return next(e)
