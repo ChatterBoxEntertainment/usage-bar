@@ -1,0 +1,23 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "usage-bar",
+  "version": "0.3.0",
+  "description": "Format supplied ChatGPT and Codex usage readings as compact meters, with a Codex CLI live status line preset.",
+  "author": { "name": "bryan" },
+  "license": "MIT",
+  "repository": "https://github.com/ChatterBoxEntertainment/usage-bar",
+  "keywords": ["usage", "context", "rate-limits", "codex"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Usage Bar",
+        "shortDescription": "Usage meters from your data",
+        "longDescription": "Turn usage readings or screenshots into compact context and limit meters in ChatGPT and Codex. Includes instructions for Codex CLI's live status line.",
+        "developerName": "ChatterBox Entertainment",
+        "category": "Developer Tools",
+        "capabilities": [],
+        "defaultPrompt": "Show a usage bar from the readings I provide."
+      }
+    }
+  }
+}
