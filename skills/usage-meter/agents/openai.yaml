@@ -1,0 +1,4 @@
+interface:
+  display_name: Usage meter
+  short_description: Format usage readings as meters
+  default_prompt: Show a usage bar from these readings.

@@ -1,7 +1,7 @@
 {
   "name": "usage-bar",
-  "version": "0.2.1",
-  "description": "Context, cost and 5h/7d limit usage at a glance: a live bar above the prompt in Claude Code, plus a usage-meter skill for chat.",
+  "version": "0.3.0",
+  "description": "Context, cost and 5h/7d limit usage in Claude Code, plus usage meters for ChatGPT and Codex.",
   "author": { "name": "bryan" },
   "license": "MIT",
   "keywords": ["usage", "context", "rate-limits", "statusline"]
