@@ -9,10 +9,10 @@ Chat mode cannot read the user's live usage, so this skill only formats numbers 
 
 ## Steps
 
-1. Collect readings from the user's message (or a screenshot they attach): context %, 5h %, 7d %, spend %, time until each window resets, session cost. If a value is missing, show that meter empty and say it was not provided. Do not guess.
+1. Collect readings from the user's message (or a screenshot they attach): context %, 5h %, 7d %, spend %, time until each window resets, session cost, and output tok/s if supplied. If a value is missing, show that meter empty and say it was not provided. Do not guess.
 2. Draw each meter with 10 cells: filled = round(percent / 10) `█`, the rest `░`.
 3. Add a level marker: 🟢 under 70%, 🟡 70-89%, 🔴 90% and over.
-4. Put the meters in one code block, one per line, then a one-line note on whichever limit is closest to full.
+4. Put the meters in one code block, one per line. Add cost and tok/s only when provided, then a one-line note on whichever reported limit is closest to full. If no limit was supplied, say there is no limit reading to compare.
 
 ## Format
 

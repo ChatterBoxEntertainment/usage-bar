@@ -1,6 +1,6 @@
 {
   "name": "usage-bar",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Context, cost and 5h/7d limit usage at a glance: a live bar above the prompt in Claude Code, plus a usage-meter skill for chat.",
   "author": { "name": "bryan" },
   "license": "MIT",
